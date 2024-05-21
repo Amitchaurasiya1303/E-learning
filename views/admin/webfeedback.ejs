@@ -1,0 +1,60 @@
+<%- include('partials/NewSideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar') %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <h2>Web Feedbacks</h2>
+            <p>This Table Conatains All Website Related Feedback Details</p>
+          </div>
+
+
+        </div>
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white">Student Name</th>
+              <th class="text-white">Role</th>
+              <th class="text-white">Subject</th>
+              <th class="text-white">Feedback</th>
+              <th class="text-white">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% allFeed.forEach(feed=> { %>
+
+              <tr>
+
+                <% feed.feeddetails.forEach(f_stu=> { %>
+                  <td>
+                    <%= f_stu.first_name+" "+f_stu.last_name %>
+                    </td>
+
+                    <td>
+                    <%= f_stu.role%>
+                    </td>
+                <% }) %>
+                
+               
+                <td><%= feed.f_subject %></td>
+                <td><%= feed.feedback %></td>
+                <td><%= feed.f_date %></td>
+              </tr>
+
+              <%}); %>
+          </tbody>
+        </table>
+        
+
+      </div>
+    </div>
+
+  </main>

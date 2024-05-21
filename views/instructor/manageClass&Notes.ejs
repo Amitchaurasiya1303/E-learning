@@ -1,0 +1,96 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+    <!-- start: Content -->
+
+    <!-- cards -->
+    <div class="row mx-1 my-4 rounded">
+
+
+      <div class="col-md-4">
+
+        <div class="row">
+          <div class="col-md-12 bg-white shadow-sm p-5">
+            <h5 class="p-0 m-0 mb-4">Class Details</h5>
+            <p><b>Class ID:</b>
+              <%= classDetails._id %>
+            </p>
+            <p><b>Class Title: </b>
+              <%= classDetails.class_title %>
+            </p>
+            <p><b>Class Description: </b>
+              <%= classDetails.class_desc %>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-4 bg-white shadow-sm p-5" id="data-table">
+
+            <% if (successMessage.length> 0) { %>
+              <div class="alert alert-success" role="alert">
+                <%= successMessage %>
+              </div>
+              <% } %>
+                <% if (errorMessage.length> 0) { %>
+                  <div class="alert alert-danger" role="alert">
+                    <%= errorMessage %>
+                  </div>
+                  <% } %>
+
+                    <form action="#" method="post" enctype="multipart/form-data">
+                      <h5 class="p-0 m-0">Upload Class Notes</h5>
+                      <h5 class="text-danger">*Please Upload Your Class Notes In PDF Format</h5>
+                      <input type="file" class="form-control" name="class_notes" placeholder="Add Drive Link Of Notes">
+                      <button type="submit" class="mybtn bg-dark mt-4 text-white w-100 my-2">Upload Notes</button>
+                    </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-5"></div>
+
+      <div class="col-md-3">
+        <div class="row bg-white p-2 shadow-sm">
+          <div class="col-md-12">
+            <video src="/backend/classes/<%= classDetails.class_vid %>" id="cls_video"
+              class="img-fluid shadow-sm border" muted></video>
+
+            <h5 class="m-0 mt-4 p-0">Class ID :</h5>
+            <p>
+              <%= classDetails._id %>
+            </p>
+            <h5 class="m-0 mt-4  p-0">Class Title :</h5>
+            <p>
+              <%= classDetails.class_title %>
+            </p>
+            <h5 class="m-0 mt-4  p-0">Class Description :</h5>
+            <p>
+              <%= classDetails.class_desc %>
+            </p>
+            <a href="elearning/api/v1/instructor/watch_class/<%= classDetails.c_id %>/<%= classDetails._id %>"><button
+                class="mybtn bg-dark text-white w-100">Watch Class</button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let video = document.getElementById('cls_video');
+      if (video) {
+        video.addEventListener('mouseover', () => {
+          video.play();
+        });
+        video.addEventListener('mouseout', () => {
+          video.pause();
+        });
+      }
+    });
+  </script>

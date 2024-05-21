@@ -1,0 +1,75 @@
+<%- include('partials/NewSideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar') %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <h2>Enrolled Students</h2>
+            <p>This Table Conatains All The Enrolled Students Details</p>
+          </div>
+
+        </div>
+
+
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white"></th>
+              <th class="text-white">Name</th>
+              <th class="text-white">Course Title</th>
+              <th class="text-white">Course Category</th>
+              <th class="text-white">Course Instructor</th>
+              <th class="text-white">Enrolled Date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% enrolledStd.forEach(std=> { %>
+              <tr>
+                <% std.enrolled_students.forEach(stddetails=> { %>
+
+                  <td>
+                    <% if (!stddetails.profile_pic) { %>
+
+                      <img src="/Assets/default_profile.jpg" alt="#"
+                        style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                      <% }else{%>
+
+                        <img src="/backend/images/<%= stddetails.profile_pic %>" alt="#"
+                          style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                        <%}%>
+                  </td>
+
+                  <td>
+                    <%= stddetails.first_name+" "+stddetails.last_name %></td>
+           <% }) %>
+
+           <% std.course_details.forEach(crsdetails => { %>
+            <td><%= crsdetails.course_title%></td>
+            <td><%= crsdetails.course_category%></td>
+            <td><%= crsdetails.course_tutor%></td>
+          <% }) %>
+
+          <td><%= std.enrolled_date %></td>
+
+          </tr>
+
+          <% }) %>
+        
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </main>

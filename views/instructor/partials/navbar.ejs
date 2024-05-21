@@ -1,0 +1,20 @@
+<nav class="py-2 bg-white rounded shadow-sm">
+    <i class="ri-menu-line sidebar-toggle d-block d-md-none"></i>
+    <h5 class="fw-bold mb-0 me-auto"><span style="color: rgb(208, 0, 0);">Welcome <span class="text-dark"><%= instructor.name %></span></span>
+    </h5>
+    <div class="dropdown">
+        <div class="d-flex align-items-center cursor-pointer dropdown-toggle px-2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="me-2 d-none d-sm-block"></span>
+            <img class="navbar-profile-image"
+                src="/backend/images/<%= instructor.instructor_pic %>"
+                alt="Image">
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Ask Doubt</a></li>
+            <li><a class="dropdown-item" href="#">Give Feedback</a></li>
+            <li><a class="dropdown-item" href="/elearning/api/v1/student/logout"
+                    style="color: rgb(208, 0, 0);">Log Out</a></li>
+        </ul>
+    </div>
+</nav>

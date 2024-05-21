@@ -1,0 +1,109 @@
+<%- include('partials/NewSideBar') %>
+    <main class="bg-light">
+
+        <div>
+            <%- include('partials/navbar') %>
+        </div>
+
+        <div class="row mx-1 my-4">
+
+            <div class="col-md-12 bg-white shadow-sm" id="data-table">
+
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="p-2">
+                        <h2>Add New Instructor</h2>
+                    </div>
+                </div>
+
+
+                <% if (successMessage.length> 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                    </div>
+                    <% } %>
+                        <% if (errorMessage.length> 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errorMessage %>
+                            </div>
+                            <% } %>
+
+                                <div>
+                                    <form action="/elearning/api/v1/admin/addInstructor" method="POST">
+                                        <div class="row d-flex justify-content-around">
+
+                                            <div class="col-md-5">
+                                                <h5>General Details</h5>
+
+
+                                                <input type="text" id="name" name="name" placeholder="Full Name"
+                                                    class="form-control my-4" required>
+
+                                                <div class="d-flex my-4">
+                                                    <div class="col-md-6 mt-2">
+                                                        <input class="form-check-input" type="radio" name="gender"
+                                                            id="flexRadioDefault2 gender" value="male"
+                                                            checked>&nbsp;Male
+                                                    </div>
+                                                    <div class="col-md-6 mt-2">
+                                                        <input class="form-check-input" type="radio" name="gender"
+                                                            id="flexRadioDefault2" value="female">&nbsp;Female
+                                                    </div>
+                                                </div>
+
+                                                <input type="date" id="dob" name="dob" class="form-control my-4"
+                                                    required>
+                                            </div>
+
+
+
+                                            <div class="col-md-5">
+                                                <h5>Education Details</h5>
+
+                                                <label for="Graduation">Graduation:</label>
+                                                <input type="text" id="qualification" placeholder="Qualification"
+                                                    name="qualification[]" class="form-control my-4" required>
+                                                <label for="Post Graduation">Post Graduation if you Done:</label>
+                                                <input type="text" id="qualification" placeholder="Qualification"
+                                                    name="qualification[]" class="form-control my-4" required>
+                                                <label for="Phd">Phd if you Done :</label>
+                                                <input type="text" id="qualification" placeholder="Qualification"
+                                                    name="qualification[]" class="form-control my-4" required>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row  d-flex justify-content-around">
+                                            <div class="col-md-5">
+                                                <h5>Personal Details</h5>
+                                                <input type="text" id="aadhar" name="aadhar_no"
+                                                    placeholder="Aadhar Number" class="form-control my-4" required>
+                                                <input type="email" id="email" name="email_id" placeholder="Email ID"
+                                                    class="form-control my-4" required>
+                                                <input type="text" id="contact" name="contact_no"
+                                                    placeholder="Contact Number" class="form-control my-4" required>
+                                            </div>
+
+
+
+                                            <div class="col-md-5">
+                                                <h5>Address Related Details</h5>
+                                                <input type="text" id="state" placeholder="State" name="state"
+                                                    class="form-control my-4">
+                                                <input type="text" id="city" placeholder="City" name="city"
+                                                    class="form-control my-4">
+                                                <input type="text" id="zip" placeholder="Zip Code" name="zip"
+                                                    class="form-control my-4">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-around my-4">
+                                            <button class="mybtn bg-dark text-white w-75">Add Instructor</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+            </div>
+        </div>
+
+    </main>

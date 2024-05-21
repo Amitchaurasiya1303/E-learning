@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg bg-body-light">
+  <div class="container">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="#">ELEARNING</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      
+      <% if (!student) { %>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+      
+        <li class="nav-item mx-3">
+          <a class="nav-link" aria-current="page" href="/eLearning/api/v1/index">Home</a>
+        </li>
+
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/eLearning/api/v1/category/allcourses">Courses</a>
+        </li>
+
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/eLearning/api/v1/instructor/login">Instructor</a>
+        </li>
+
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/eLearning/api/v1/about">About</a>
+        </li>
+
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/eLearning/api/v1/contact">Contact</a>
+        </li>
+
+      </ul>
+      
+      <div class="d-flex ms-auto">
+        <a class="mybtn" href="/eLearning/api/v1/student/register">
+          Register</a>
+
+          <a class="mybtn ms-2 bg-dark text-white" href="/eLearning/api/v1/student/login">
+            Log In</a>
+          </div>
+      </div>
+          <% }else{ %>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+      
+              <li class="nav-item">
+                <a class="nav-link mx-3" aria-current="page" href="/eLearning/api/v1/student/dashboard">Dashboard</a>
+              </li>
+      
+              <li class="nav-item mx-3">
+                <a class="nav-link" aria-current="page" href="/eLearning/api/v1/student/allcourses">All Courses</a>
+              </li>
+
+              <li class="nav-item mx-3">
+                <a class="nav-link" aria-current="page" href="/eLearning/api/v1/student/enrolledcourses">Enrolled Courses</a>
+              </li>
+      
+
+              <li class="nav-item mx-3">
+                <a class="nav-link" aria-current="page" href="/eLearning/api/v1/student/user_profile">Profile</a>
+              </li>
+
+              <li class="nav-item mx-3">
+                <a class="nav-link" aria-current="page" href="/eLearning/api/v1/student/feedback">Feedback</a>
+              </li>
+
+      
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="/eLearning/api/v1/student/contact">Contact</a>
+              </li>
+            </ul>
+            
+            <div class="d-flex ms-auto">
+                <a class="mybtn ms-2 bg-dark text-white" href="/eLearning/api/v1/student/logout">
+                  Log Out</a>
+                </div>
+            </div>
+        <%}%>
+    </div>
+        
+     
+  </div>
+</nav>

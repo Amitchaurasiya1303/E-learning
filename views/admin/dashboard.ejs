@@ -1,0 +1,202 @@
+<%- include('partials/NewSideBar') %>
+    <main class="bg-light">
+
+        <div>
+            <%- include('partials/navbar') %>
+        </div>
+
+        <div class="row mx-1 my-4">
+            <div class="col-md-12">
+                <div class="row">
+
+
+                    <div class="col-md-8 ">
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-md-5 bg-white shadow-sm"><canvas id="studentsChart"></canvas></div>
+                            <div class="col-md-5 bg-white shadow-sm"><canvas id="CoursesChart"></canvas></div>
+                        </div>
+
+                        <div class="row my-4 justify-content-around card-slide" style="height: 60vh; overflow-y: scroll;">
+                            <div class="col-md-11 shadow-sm bg-white">
+                                <div class="d-flex justify-content-between p-2">
+                                    <h5 class="m-0 p-0">New Resgistered Students</h5>
+                                    <a href="/elearning/api/v1/admin/students_list" class="d-flex align-items-center"><button
+                                            class="mybtn bg-dark text-white">View
+                                            All</button></a>
+                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="bg-dark">
+                                            <th class="text-white"></th>
+                                            <th class="text-white">Name</th>
+                                            <th class="text-white">Gender</th>
+                                            <th class="text-white">Username</th>
+                                            <th class="text-white">Contact No.</th>
+                                            <th class="text-white">Email ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for (let i=0; i < students.length; i++) { const student=students[i];
+                                            %>
+                                            <tr>
+                                                <td>
+                                                    <% if (!student.profile_pic) { %>
+
+                                                        <img src="/Assets/default_profile.jpg" alt="#"
+                                                            style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                                                        <% }else{%>
+
+                                                            <img src="/backend/images/<%= student.profile_pic %>"
+                                                                alt="#"
+                                                                style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                                                            <%}%>
+                                                </td>
+                                                <td>
+                                                    <%= student.first_name %>
+                                                        <%= student.last_name %>
+                                                </td>
+
+                                                <td>
+                                                    <%= student.gender %>
+                                                </td>
+                                                <td>
+                                                    <%= student.user_name %>
+                                                </td>
+                                                <td>
+                                                    <%= student.phone_number %>
+                                                </td>
+                                                <td>
+                                                    <%= student.email_id %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="row" >
+                            <div class="col-md-12 bg-white shadow-sm d-flex align-items-center justify-content-center">
+                                <canvas id="all" class="h-75 w-75" style="object-fit: contain;"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="row my-4 card-slide" style="height: 40vh; overflow-y: scroll;">
+                            <div class="col-md-12 bg-white shadow-sm">
+                                <h5>Top Instructors</h5>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="bg-dark">
+                                            <th class="text-white"></th>
+                                            <th class="text-white">Name</th>
+                                            <th class="text-white">Email Idd</th>
+                                            <th class="text-white">Conatct No.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for (let i=0; i < 5 && i < instructors.length; i++) { const
+                                            instructor=instructors[i]; %>
+                                            <tr>
+                                            <tr>
+                                                <td>
+                                                    <% if (!instructor.instructor_pic) { %>
+
+                                                        <img src="/Assets/default_profile.jpg" alt="#"
+                                                            style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                                                        <% }else{%>
+
+                                                            <img src="/backend/images/<%= instructor.instructor_pic %>"
+                                                                alt="#"
+                                                                style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+                                                            <%}%>
+                                                </td>
+                                                <td>
+                                                    <%= instructor.name %>
+                                                </td>
+                                                <td>
+                                                    <%= instructor.email_id %>
+                                                </td>
+                                                <td>
+                                                    <%= instructor.contact_no %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        var studentData = {
+            labels: ['Students', 'Instructors'],
+            datasets: [{
+                data: ['<%=TotalStudent%>', '<%=TotalInstructor%>'], // Example data, replace with actual student counts
+                backgroundColor: ['black', 'gray'] // Colors for each segment
+            }]
+        };
+        var studentsCanvas = document.getElementById('studentsChart').getContext('2d');
+        var studentsChart = new Chart(studentsCanvas, {
+            type: 'bar',
+            data: studentData,
+            options: {
+                // Add any additional options here
+            }
+        })
+
+
+
+
+        let English = '<%= courseStats[0] ? courseStats[0].count : 0 %>';
+        let Hindi = '<%=courseStats[1]? courseStats[1].count: 0%>';
+
+        var CoursesData = {
+            labels: ['Hindi', 'English'],
+            datasets: [{
+                data: ['<%=hindiCourses%>', '<%=englishCourses%>'],
+                backgroundColor: ['black', 'gray']
+            }]
+        };
+        var CoursesCanvas = document.getElementById('CoursesChart').getContext('2d');
+        var courseschart = new Chart(CoursesCanvas, {
+            type: 'bar',
+            data: CoursesData,
+            options: {
+                // Add any additional options here
+            }
+        });
+
+
+
+        let maleCount = '<%=studentStats[0]? studentStats[0].count: 0%>';
+        let femalecount = '<%= studentStats[1] ? studentStats[1].count : 0 %>';
+        var allusersRatio = {
+            labels: ['Male', 'Female'],
+
+            datasets: [{
+                data: ['<%=maleStudents%>','<%=femaleStudents%>'],
+                backgroundColor: ['black', 'gray']
+            }]
+        };
+        var allusersrratio = document.getElementById('all').getContext('2d');
+        var allusers = new Chart(allusersrratio, {
+            type: 'pie',
+            data: allusersRatio,
+            options: {
+                // Add any additional options here
+            }
+        });
+
+    </script>

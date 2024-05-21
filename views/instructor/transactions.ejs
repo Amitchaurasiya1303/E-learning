@@ -1,0 +1,53 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+
+        <div>
+          <h2>Transactions</h2>
+          <p>This Table Contains All The Transaction Realted To Your Courses</p>
+        </div>
+
+        <table class="table table-striped table-bordered mt-2">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white">Student ID</th>
+              <th class="text-white">Course ID</th>
+              <th class="text-white">Transaction ID</th>
+              <th class="text-white">Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% transactions.forEach(payment=> { %>
+              <tr>
+                <td>
+                  <%=payment.s_id%>
+                </td>
+                <td>
+                  <%= payment.c_id%>
+                </td>
+                <td>
+                  <%= payment.transaction_ID %>
+                </td>
+
+                <td>
+                  <%= payment.transaction_date %>
+                </td>
+
+              </tr>
+              <% }); %>
+          </tbody>
+
+        </table>
+
+
+      </div>
+    </div>
+  </main>

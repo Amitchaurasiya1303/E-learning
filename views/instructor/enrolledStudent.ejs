@@ -1,0 +1,59 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+
+        <div>
+          <h2>Enrolled Students</h2>
+          <p>This Table Contains All The Enrolled Students In The Courses Launched By You</p>
+        </div>
+
+
+
+        <table class="table table-striped table-bordered mt-2">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white">Name</th>
+              <th class="text-white">Course Title</th>
+              <th class="text-white">Course Category</th>
+              <th class="text-white">Conatct No.</th>
+              <th class="text-white">Email ID</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% students.forEach(student=> { %>
+
+              <td>
+                <%= student.student.first_name %>
+                  <%= student.student.last_name %>
+              </td>
+              <td>
+                <%= student.course.course_title %>
+              </td>
+              <td>
+                <%= student.course.course_category %>
+              </td>
+              <td>
+                <%= student.student.phone_number %>
+              </td>
+              <td>
+                <%= student.student.email_id %>
+              </td>
+              </tr>
+              <% }) %>
+
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+  </main>

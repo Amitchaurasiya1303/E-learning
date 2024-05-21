@@ -1,0 +1,65 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+
+    <div class="row my-4 bg-white shadow-sm p-2 mx-1 rounded">
+
+
+      <div class="col-md-2">
+
+
+        <% if (!instructor.instructor_pic) { %>
+
+          <img src="/Assets/default_profile.jpg" alt="#" class="img-fluid"
+            style="border-radius: 50%; object-fit: cover; aspect-ratio: 1/1;">
+
+          <% }else{%>
+
+            <img src="/backend/images/<%= instructor.instructor_pic %>" alt="#" class="img-fluid"
+              style="border-radius: 50%; object-fit: cover; aspect-ratio: 1/1; border: 7px solid gray; padding: 5px;">
+
+            <%}%>
+
+
+              <form action="/elearning/api/v1/instructor/update_details" method="post" enctype="multipart/form-data">
+                <input type="file" id="instructor_pic" name="instructor_pic" class="form-control my-4">
+                <button type="submit" class="mybtn border-danger bg-danger text-white">Upload</button>
+              </form>
+
+      </div>
+
+      <div class="col-md-8">
+        <h5 class="m-0 p-0 mb-4">Personal Details</h5>
+        <p class="form-control p-3"><b>Instructor ID:</b>
+          <%= instructor._id %>
+        </p>
+        <p class="form-control p-3"><b>Instructor Name:</b>
+          <%= instructor.name %>
+        </p>
+        <p class="form-control p-3"><b>Date Of Birth:</b>
+          <%= instructor.dob %>
+        </p>
+        <p class="form-control p-3"><b>Qualification:</b>
+          <%= instructor.qualification%>
+        </p>
+        <p class="form-control p-3"><b>Email ID:</b>
+          <%= instructor.email_id %>
+        </p>
+        <p class="form-control p-3"><b>Conatct Number:</b>
+          <%= instructor.contact_no %>
+        </p>
+        <p class="form-control p-3"><b>State:</b>
+          <%= instructor.state %>
+        </p>
+        <p class="form-control p-3"><b>City:</b>
+          <%= instructor.city %>
+        </p>
+        <p class="form-control p-3"><b>Zip Code:</b>
+          <%= instructor.zip %>
+        </p>
+      </div>
+    </div>
+    </div>

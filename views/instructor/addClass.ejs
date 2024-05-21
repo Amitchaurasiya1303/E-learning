@@ -1,0 +1,68 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+    <!-- start: Content -->
+
+    <!-- cards -->
+    <div class="row mx-1 my-4">
+
+
+      <div class="col-md-12 bg-white shadow-sm" id="data-table">
+        <form action="/elearning/api/v1/instructor/addnewclass/<%= course._id %>" method="post"
+          enctype="multipart/form-data">
+
+          <h5 class="m-0 p-0">Upload New Class</h5>
+
+          <% if (successMessage.length> 0) { %>
+            <div class="alert alert-success" role="alert">
+              <%= successMessage %>
+            </div>
+            <% } %>
+              <% if (errorMessage.length> 0) { %>
+                <div class="alert alert-danger" role="alert">
+                  <%= errorMessage %>
+                </div>
+                <% } %>
+
+                  <div class="row">
+                    <div class="col-md-12 mt-4">
+                      <label for="Class Title">Class Title:</label>
+                      <input type="text" class="form-control" name="class_title" placeholder="Class Title">
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="Class Title">Class Descrition:</label>
+                      <textarea type="text" class="form-control" name="class_desc"
+                        placeholder="Class Discription"></textarea>
+                    </div>
+                  </div>
+
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="Video Link">Upload Video:</label>
+                      <input type="file" class="form-control" name="class_vid">
+                    </div>
+                  </div>
+
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button type="submit" class="mybtn bg-dark text-white w-100">Launch New Course</button>
+                    </div>
+                  </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,84 @@
+<%- include('./../partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="row p-3">
+            <div class="col-md-7 ">
+                <video src="/backend/classes/<%= classes.class_vid %>" controls class="img-fluid"></video>
+                <h3>
+                    <b>
+                        <%= classes.class_title %>
+                    </b>
+                </h3>
+                <p>
+                    <%= classes.class_desc %>
+                </p>
+
+                <% if (classes.class_notes!=null) { %>
+                    <a href="/backend/Notes&Pdf/<%= classes.class_notes %>"
+                        class="btn bg-dark text-white border-dark p-2">Open Lecture Notes</a>
+                    <% }else{ %>
+                        <a href="/backend/Notes&Pdf/<%= classes.class_notes %>" onclick="notesNotAvailable()"
+                            class="btn bg-danger text-white border-danger p-2">Notes Unavailable</a>
+                        <%}%>
+
+            </div>
+
+
+
+            <div class="col-md-5" id="moreClasses">
+                <% allclasses.forEach(classItem=> { %>
+                    <% if (classes.id==classItem.id) { %>
+                        <a href="/elearning/api/v1/student/watch_class/<%= classItem.c_id %>/<%= classItem._id %>">
+                            <div class="card mb-2 bg-dark text-white">
+                                <div class="row g-0">
+                                    <div class="col-md-3 d-flex align-items-center">
+                                        <img src="/backend/images/<%= course.course_img %>" class="w-100 img-fluid"
+                                            alt="..." style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="card-body">
+                                            <h5 class="card-title m-0 p-0">
+                                                <%= classItem.class_title %>
+                                            </h5>
+                                            <p class="card-text">
+                                                <%= classItem.class_desc %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <% } else { %>
+                            <a href="/elearning/api/v1/student/watch_class/<%= classItem.c_id %>/<%= classItem._id %>">
+                                <div class="card mb-2">
+                                    <div class="row g-0">
+                                        <div class="col-md-3 d-flex align-items-center">
+                                            <img src="/backend/images/<%= course.course_img %>" class="w-100 img-fluid"
+                                                alt="..." style="object-fit: cover;">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="card-body">
+                                                <h5 class="card-title m-0 p-0">
+                                                    <%= classItem.class_title %>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <%= classItem.class_desc %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <% } %>
+                                <% }); %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./../partials/footer.ejs') %>
+
+        <script>
+            function notesNotAvailable() {
+                alert("Sorry the Notes For this Class Is Not Available!")
+            }
+        </script>

@@ -1,0 +1,141 @@
+<%- include('partials/sideBar') %>
+    <main class="bg-light">
+
+        <div>
+            <%- include('partials/navbar',{instructor}) %>
+        </div>
+
+        <div class="row mx-1 my-4">
+
+            <div class="col-md-12 bg-white shadow-sm" id="data-table">
+
+                <% if (successMessage.length> 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                    </div>
+                    <% } %>
+                        <% if (errorMessage.length> 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errorMessage %>
+                            </div>
+                            <% } %>
+
+                                <form class="overflow" action="/elearning/api/v1/instructor/addnewcourse" method="post"
+                                    enctype="multipart/form-data">
+
+                                    <div class="row  my-4">
+                                        <div class="col-md-6 mb-4 mb-md-0"><input class="form-control" type="text"
+                                                name="course_title" placeholder="Enter Course Name"></div>
+
+                                        <div class="col-md-6"> <input class="form-control" name="course_tutor"
+                                                id="course_tutor" cols="30" rows="10"
+                                                placeholder="Enter course tutor name"></input></div>
+                                    </div>
+
+
+
+                                    <div class="row my-4">
+                                        <div class="col-md-4">
+                                            <select class="form-control mb-4 mb-md-0" name="course_category"
+                                                id=" course_category">
+                                                <option value="Art" selected>Art & Design</option>
+                                                <option value="Communication">Communication</option>
+                                                <option value="Content Writing">Content Writing</option>
+                                                <option value="Programming">Programming</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Network">Network</option>
+                                                <option value="Photography">Photography</option>
+                                                <option value="Science">Science</option>
+                                                <option value="Videography">Videography</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-control mb-4 mb-md-0" name="course_language"
+                                                id=" course_language">
+                                                <option value="Hindi" selected>Hindi</option>
+                                                <option value="English">Englsih</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="file" name="course_img">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row my-4">
+                                        <div class="col-md-4">
+                                            <ul id="topicsList" class="list-group">
+                                                <li class="list-group-item">
+                                                    <input class="form-control" type="text" name="course_topics[]"
+                                                        placeholder="Enter Topic">
+                                                </li>
+                                            </ul>
+                                            <button type="button"
+                                                class="mybtn mb-4 mb-md-0 bg-dark text-white btn-secondary mt-2"
+                                                onclick="addTopic()">Add Topic</button>
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <input class="form-control" type="number" name="course_duration"
+                                                placeholder="Course Duration">
+                                            <p>Note : Please Specify The Course Details In Weeks</p>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="Number" name="course_fee"
+                                                placeholder="Course Fee">
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="row my-4">
+                                        <div class="col-md-6">
+                                            <textarea class="form-control mb-4 mb-md-0" name="course_description"
+                                                id="course_description" cols="30" rows="10"
+                                                placeholder="Describe About The Course"></textarea>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <textarea class="form-control" name="course_objective" id="course_objective"
+                                                cols="30" rows="10"
+                                                placeholder="What's Your Course Objective ?"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-6"><textarea class="form-control mb-4 mb-md-0"
+                                                name="course_outcomes" id="course_outcomes" cols="30" rows="10"
+                                                placeholder="Course Outcomes"></textarea></div>
+
+                                        <div class="col-md-6"> <textarea class="form-control" name="future_scope"
+                                                id="future_scope" cols="30" rows="10"
+                                                placeholder="What is the Future Scope Of This course?"></textarea></div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <button type="submit"
+                                                class="mybtn bg-dark text-white btn-primary w-75">Launch New
+                                                Course</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+            </div>
+        </div>
+
+        <script>
+            function addTopic() {
+                const topicsList = document.getElementById('topicsList');
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = '<input class="form-control" type="text" name="course_topics[]" placeholder="Enter Topic">';
+                topicsList.appendChild(li);
+            }
+        </script>

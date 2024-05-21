@@ -1,0 +1,129 @@
+<style>
+  @media print {
+    #sidebar {
+      display: none;
+    }
+
+    #print {
+      display: none;
+    }
+
+    .search {
+      display: none;
+    }
+
+    .edit {
+      display: none;
+    }
+  }
+</style>
+
+
+<%- include('partials/NewSideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar') %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <h2>All Instructors</h2>
+            <p>This Table Conatains All The registered Instructors Details</p>
+          </div>
+
+          <form action="#" class="d-flex" id="search-btn">
+            <input type="text" class="form-control search" id="search-form">
+            <button class="search mybtn bg-dark text-white mx-2">Search</button>
+          </form>
+
+        </div>
+
+        <div class="float-end p-2">
+          <a href="/elearning/api/v1/admin/addInstructor"><button class="mybtn bg-danger text-white border-danger">Add
+              New Instructor</button></a>
+        </div>
+
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white"></th>
+              <th class="text-white">Name</th>
+              <th class="text-white">UID</th>
+              <th class="text-white">Contact No.</th>
+              <th class="text-white">Email ID</th>
+              <th class="text-white">Qualification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% AllInstructors.forEach(instructor=> { %>
+
+              <tr>
+
+                <td>
+                  <% if (!instructor.instructor_pic) { %>
+
+                    <img src="/Assets/default_profile.jpg" alt="#"
+                      style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+
+                    <% }else{%>
+
+                      <img src="/backend/images/<%= instructor.instructor_pic %>" alt="#"
+                        style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+                      <%}%>
+                </td>
+
+                <td>
+                  <%=instructor.name%>
+                </td>
+                <td>
+                  <%=instructor.aadhar_no%>
+                </td>
+                <td>
+                  <%=instructor.contact_no%>
+                </td>
+                <td>
+                  <%=instructor.email_id%>
+                </td>
+                <td>
+                  <%=instructor.qualification%>
+                </td>
+
+              </tr>
+
+              <%}); %>
+          </tbody>
+        </table>
+
+
+
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+
+
+    let field = "";
+    let searchform = document.getElementById('search-form');
+
+    searchform.addEventListener('input', (event) => {
+      field = event.target.value;
+    })
+
+
+    let searchbtn = document.getElementById('search-btn');
+    searchbtn.addEventListener('submit', (event) => {
+      event.preventDefault();
+      window.location.href = `/elearning/api/v1/admin/students_list/?name=${field}`
+    })
+
+
+  </script>

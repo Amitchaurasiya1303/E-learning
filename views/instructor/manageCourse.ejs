@@ -1,0 +1,78 @@
+<%- include('partials/sideBar') %>
+    <main class="bg-light">
+
+        <div>
+            <%- include('partials/navbar',{instructor}) %>
+        </div>
+
+        <div class="row mx-1 my-4">
+            <div class="col-md-12 bg-white shadow-sm my-4 py-2" id="data-table">
+                <div class="row">
+                    <div class="col-md-2"><img src="/backend/images/<%= course.course_img %>" alt="#" class="img-fluid"
+                            style="border: 1px solid grey; padding: 5px;"></div>
+                    <div class="col-md-8">
+
+                        <h3>
+                            <%= course.course_title %>
+                        </h3>
+                        <p>ID: <%= course._id %>
+                        </p>
+                        <p><span><b>Category:</b></span>
+                            <%=course.course_category %>
+                        </p>
+                        <p><span><b>Language:</b></span>
+                            <%=course.course_language %>
+                        </p>
+                        <p><span><b>Duration:</b></span>
+                            <%= course.course_duration %> weeks
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h5 class="m-0 p-0">Description</h5>
+                        <p>
+                            <%= course.course_description %>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <h5>Topics</h5>
+                            <ol>
+                                <% course.course_topics.forEach(topic=> { %>
+
+                                    <li>
+                                        <%= topic %>
+                                    </li>
+
+                                    <% }); %>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="p-0 m-0">Course Objective</h5>
+                        <%= course.course_objective %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="p-0 m-0">Future Scope</h5>
+                        <%= course.future_scope %>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+    </main>

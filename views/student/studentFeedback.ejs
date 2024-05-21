@@ -1,0 +1,62 @@
+<%- include('./../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="py-4">
+                <div class="row g-3 p-3">
+                    <div class="col-md-8 mx-auto">
+                        <h5>Feedback Form</h5>
+                        <% if (successMessage.length> 0) { %>
+                            <div class="alert alert-success" role="alert">
+                                <%= successMessage %>
+                            </div>
+                            <% } %>
+                                <% if (errorMessage.length> 0) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+
+                                        <h5 class="text-danger">Note* : Please Enter The Subject In Order To Get Quick
+                                            Response!</h5>
+                                        <form action="/elearning/api/v1/student/feedback" method="post">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input class="form-control" type="text" name="f_name"
+                                                        value="<%= student.first_name %> <%= student.last_name %>"
+                                                        id="name" placeholder="Enter Your Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="row my-4">
+                                                <div class="col-md-12">
+                                                    <input type="number" class="form-control" name="f_mobile"
+                                                        id="number" value="<%= student.phone_number %>"
+                                                        placeholder="Enter Your Mobile No.">
+                                                </div>
+                                            </div>
+
+                                            <div class="row my-4">
+                                                <div class="col-md-12">
+                                                    <input name="f_subject" class="form-control" id="feedback_subject"
+                                                        placeholder="Subject"></input>
+                                                </div>
+                                            </div>
+
+                                            <div class="row my-4">
+                                                <div class="col-md-12">
+                                                    <textarea name="feedback" class="form-control" id="feedback"
+                                                        cols="30" rows="10" placeholder="Enter Your Comment"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn w-100 bg-dark text-white">Send
+                                                Feedback</button>
+                                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./../partials/footer.ejs') %>

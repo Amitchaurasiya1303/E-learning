@@ -1,0 +1,73 @@
+<%- include('partials/sideBar') %>
+  <main class="bg-light">
+
+    <div>
+      <%- include('partials/navbar',{instructor}) %>
+    </div>
+
+    <div class="row mx-1 my-4">
+
+      <div class="col-md-12 bg-white shadow-sm" id="data-table">
+
+        <div class="d-flex align-items-center">
+          <img src="/backend/images/<%= course.course_img %>" class="img-fluid rounded-50 border p-2" alt="course_img"
+            style="object-fit: cover; height: 100px; width: 100px;">
+          <div class="d-flex justify-content-center flex-column p-2">
+            <h2>
+              <%= course.course_title %>
+            </h2>
+            <p style="color: darkgrey;">ID: <%= course._id %>
+            </p>
+          </div>
+        </div>
+
+
+
+        <a href="/elearning/api/v1/instructor/addnewclass/<%= course._id %>">
+          <button style="float: right;" class="mb-2 mybtn bg-dark text-white d-flex align-items-center">
+            Add New Class
+          </button>
+        </a>
+
+
+
+
+        <table class="table table-striped table-bordered mt-2">
+          <thead>
+            <tr class="bg-dark">
+              <th class="text-white">Image</th>
+              <th class="text-white">Class Title</th>
+              <th class="text-white">Class Description</th>
+              <th class="text-white">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% course_classes.forEach(classItem=> { %>
+              <tr>
+                <td>
+                  <img src="/backend/images/<%= course.course_img %>" class="img-fluid rounded-50" alt="course_img"
+                    style="object-fit: cover; height: 50px; width: 50px;">
+                </td>
+                <td>
+                  <%=classItem.class_title%>
+                </td>
+                <td>
+                  <%= classItem.class_desc %>
+                </td>
+                <td>
+                  <a href="/elearning/api/v1/instructor/watch_class/<%= course._id %>/<%= classItem._id %>">
+                    <button class="mybtn bg-danger border-danger text-white">Watch</button>
+                  </a>
+                  <a href="/elearning/api/v1/instructor/manage_class/<%= course._id %>/<%= classItem._id %>">
+                    <button class="mybtn bg-success border-success text-white">Manage Class & Notes</button>
+                  </a>
+                </td>
+              </tr>
+              <% }); %>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>

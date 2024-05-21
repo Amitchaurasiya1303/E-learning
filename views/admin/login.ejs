@@ -1,0 +1,43 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+
+            <form action="/elearning/api/v1/admin/login" method="post" class="col-md-4">    
+                
+                <h1 class="d-flex justify-content-center"><b><span class="text-danger">Admin</span> LOG IN</b></h1>
+
+
+                <% if (message && message.length> 0) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= message[0] %>
+                    </div>
+                    <% } %>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="user_name" placeholder="Username" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" value="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember Me</label>
+                </div>
+
+                <button type="submit" class="mybtn bg-dark text-white btn-primary w-100">Log In</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+

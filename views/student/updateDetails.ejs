@@ -1,0 +1,74 @@
+<%- include('./../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="row">
+
+                    <div class="col-md-6 d-grid align-items-center">
+                        <img src="/Assets/update_profile.jpg" alt="#" class="img-fluid">
+                    </div>
+
+                    <div class="col-md-6 mx-auto d-grid align-items-center">
+                        <div>
+
+                            <h5>Update Profile</h5>
+
+                            <% if (successMessage.length> 0) { %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= successMessage %>
+                                </div>
+                                <% } %>
+                                    <% if (errorMessage.length> 0) { %>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%= errorMessage %>
+                                        </div>
+                                        <% } %>
+
+
+                                            <h5 class="text-danger">Note* : Please Fill Only Those Deatails Which
+                                                You Want
+                                                To update!</h5>
+                                            <form id="updateForm" action="/elearning/api/v1/student/update_details"
+                                                method="POST">
+
+                                                <div class="row my-4">
+                                                    <div class="col-md-6 mb-md-0 mb-3">
+                                                        <input class="form-control" type="text" name="first_name"
+                                                            placeholder="First Name">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="text" name="last_name"
+                                                            placeholder="Last Name">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-4">
+                                                    <div class="col-md-12">
+                                                        <input class="form-control" type="text" name="email_id"
+                                                            placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-4">
+                                                    <div class="col-md-12">
+                                                        <input class="form-control" type="text" name="phone_number"
+                                                            placeholder="Mobile Number">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-4">
+                                                    <div class="col-md-12">
+                                                        <button type="submit"
+                                                            class="btn bg-warning p-2 text-dark w-100">Update
+                                                            Profile</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include('./../partials/footer.ejs') %>

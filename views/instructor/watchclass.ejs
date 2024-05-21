@@ -1,0 +1,89 @@
+<%- include('partials/sideBar') %>
+    <main class="bg-light">
+        <div>
+            <%- include('partials/navbar',{instructor}) %>
+        </div>
+
+        <div class="row mx-1 my-4">
+            <div class="col-md-12 bg-white shadow-sm my-4" id="data-table">
+                <div class="row">
+                    <div class="col-md-7 ">
+                        <video src="/backend/classes/<%= classes.class_vid %>" controls class="img-fluid"></video>
+                        <h3><b>
+                                <%= classes.class_title %>
+                            </b></h3>
+                        <p>
+                            <%= classes.class_desc %>
+                        </p>
+
+                        <% if (classes.class_notes!=null) { %>
+                            <a href="/backend/Notes&Pdf/<%= classes.class_notes %>"><button
+                                    class="mybtn bg-success text-white border-success">Class Notes</button></a>
+                            <% }else{%>
+                                <a href="#"><button class="mybtn bg-danger text-white border-danger"
+                                        onclick="notesNotAvailable()">Class Notes</button></a>
+                                <%}%>
+
+                    </div>
+
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-4" id="moreClasses">
+                        <% allclasses.forEach(classItem=> { %>
+                            <% if (classes.id==classItem.id) { %>
+                                <a
+                                    href="/elearning/api/v1/instructor/watch_class/<%= classItem.c_id %>/<%= classItem._id %>">
+                                    <div class="card mb-2 bg-dark text-white">
+                                        <div class="row g-0">
+                                            <div class="col-md-3 d-flex align-items-center">
+                                                <img src="/backend/images/<%= course.course_img %>"
+                                                    class="w-100 img-fluid" alt="..." style="object-fit: cover;">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-body">
+                                                    <h5 class="card-title m-0 p-0">
+                                                        <%= classItem.class_title %>
+                                                    </h5>
+                                                    <p class="card-text">
+                                                        <%= classItem.class_desc %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <% } else { %>
+                                    <a
+                                        href="/elearning/api/v1/instructor/watch_class/<%= classItem.c_id %>/<%= classItem._id %>">
+                                        <div class="card mb-2">
+                                            <div class="row g-0">
+                                                <div class="col-md-3 d-flex align-items-center">
+                                                    <img src="/backend/images/<%= course.course_img %>"
+                                                        class="w-100 img-fluid" alt="..." style="object-fit: cover;">
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title m-0 p-0">
+                                                            <%= classItem.class_title %>
+                                                        </h5>
+                                                        <p class="card-text">
+                                                            <%= classItem.class_desc %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <% } %>
+                                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function notesNotAvailable() {
+            alert("Notes Not Avaialable For This Class!")
+        }
+    </script>

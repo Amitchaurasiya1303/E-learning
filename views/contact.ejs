@@ -1,0 +1,54 @@
+<%- include('partials/navbar.ejs',{student}) %>
+    <div class="container mt-5">
+        <div class="row">
+
+            <div class="col-md-2 d-flex">
+                <img src="/Assets/contact.jpg" class="img-fluid rounded" alt="Contact-img" style="object-fit: cover;">
+            </div>
+            <div class="col-md-2 d-flex">
+                <img src="/Assets/contact-4.jpg" class="img-fluid rounded" alt="Contact-img" style="object-fit: cover;">
+            </div>
+            <div class="col-md-2 d-flex">
+                <img src="/Assets/contact-5.jpg" class="img-fluid rounded" alt="Contact-img" style="object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+
+                <% if (successMessage.length> 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                    </div>
+                    <% } %>
+                        <% if (errorMessage.length> 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errorMessage %>
+                            </div>
+                            <% } %>
+
+                                <h5 class="m-0 p-0">Get in Touch</h5>
+                                <br>
+                                <p>Feel free to contact us with any questions, feedback, or inquiries. Our team is here
+                                    to help!</p>
+                                <form action="/eLearning/api/v1/contact" method="POST">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" name="con_name" id="con_name"
+                                            placeholder="Enter your name">
+                                    </div> <br>
+                                    <div class="form-group">
+
+                                        <input type="email" class="form-control" name="con_email" id="con_email"
+                                            placeholder="Enter your email">
+                                    </div> <br>
+                                    <div class="form-group">
+
+                                        <textarea class="form-control" id="con_message" name="con_message" rows="5"
+                                            placeholder="Enter your message"></textarea>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="mybtn w-100 bg-dark text-white">Submit</button>
+                                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <%- include('partials/footer.ejs') %>

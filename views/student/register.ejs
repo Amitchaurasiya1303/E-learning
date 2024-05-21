@@ -1,0 +1,118 @@
+<%- include('../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="row my-5 ">
+
+            <div class="col-md-6 d-flex">
+                <img src="/Assets/register.jpg" alt="register-img" class="img-fluid rounded" style="object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+
+                <% if (successMessage.length> 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                    </div>
+                    <% } %>
+                        <% if (errorMessage.length> 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errorMessage %>
+                            </div>
+                            <% } %>
+
+                                <form action="/elearning/api/v1/student/register" method="post">
+
+                                    <div class="row my-4">
+
+
+                                        <div class="col-md-6 mb-4 mb-md-0">
+
+                                            <input class="form-control" type="text" id="fname" name="first_name"
+                                                placeholder="First Name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" id="lname" name="last_name"
+                                                placeholder="Last Name">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6 mt-2">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="flexRadioDefault2 gender" value="male" checked>&nbsp;Male
+                                                </div>
+                                                <div class="col-md-6 mt-2 mb-4 mb-md-0">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="flexRadioDefault2" value="female">&nbsp;Female
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6"><input class="form-control" type="date" id="dob"
+                                                name="dob" placeholder="Date of Birth"></div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" id="email" name="email_id"
+                                                placeholder="Email">
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row my-4">
+                                        <div class="col-md-12"><input class="form-control" type="text" id="phone_num"
+                                                name="phone_number" placeholder="Mobile Number">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-12"><input class="form-control" type="text" id="user_name"
+                                                name="user_name" placeholder="Username">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-6 mb-4 mb-md-0"><input class="form-control" type="password"
+                                                id="password" name="password" placeholder="Password">
+                                            <div id="password-error" class="error text-danger"></div>
+                                        </div>
+                                        <div class="col-md-6"><input class="form-control" type="password"
+                                                id="confirm_password" name="confirm_password"
+                                                placeholder="Confirm Password">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <div class="col-md-4 mb-4 mb-md-0"><input class="form-control" type="text"
+                                                id="state" name="state" placeholder="State">
+                                        </div>
+                                        <div class="col-md-4 mb-4 mb-md-0"><input class="form-control" type="text"
+                                                id="city" name="city" placeholder="City">
+
+                                        </div>
+                                        <div class="col-md-4"><input class="form-control" type="text" id="zip"
+                                                name="zip" placeholder="Zip Code">
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-3">
+                                        <div class="col-md-12">
+                                            <button type="submit"
+                                                class="btn bg-dark p-2 text-white w-100">Register</button>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <a href="/eLearning/api/v1/student/login">Already Have An Acoount?</a>
+                                    </div>
+                                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+       

@@ -1,0 +1,48 @@
+<%- include('./../partials/navbar.ejs') %>
+
+    <!-- start: Content -->
+    <div class="py-4">
+        <!-- cards -->
+        <div class="container">
+            <div class="row my-5">
+                <h5>Enrolled Courses</h5>
+                <div class="col-md-8 card-slide">
+                    <% if (course===null) { %>
+                        <p>You are not enrolled in any course.</p>
+                        <% } else { %>
+                            <% course.forEach(course=> { %>
+                                <% course.enrolled_courses.forEach(enrolledCourse=> { %>
+                                    <a
+                                        href="/elearning/api/v1/student/enrolledcourse/classes/<%= enrolledCourse._id %>">
+                                        <!-- Card -->
+                                        <div class="card mb-3">
+                                            <div class="row g-0">
+                                                <div class="col-md-3 d-flex align-items-center">
+                                                    <img src="/backend/images/<%= enrolledCourse.course_img %>"
+                                                        class="img-fluid rounded" alt="Artificial Intelligence"
+                                                        style="height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title m-0 p-0">
+                                                            <%= enrolledCourse.course_title %>
+                                                        </h5>
+                                                        <p class="card-text">
+                                                            <%= enrolledCourse.course_description %>
+                                                        </p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- Card End -->
+                                    <% }); %>
+                                        <% }); %>
+                                            <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./../partials/footer.ejs') %>

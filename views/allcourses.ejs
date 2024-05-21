@@ -1,0 +1,141 @@
+<%- include('partials/navbar.ejs',{student}) %>
+
+  <div class="container">
+    <!-- Root -->
+
+    <!-- All Courses -->
+    <div class="row my-5">
+      <div class="col-md-9">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-8">
+            <h5>All Courses</h5>
+          </div>
+          <div class="col-md-4">
+            <form action="#" id="search-btn" class="d-flex">
+              <input class="form-control me-2" type="search" id="search-form" placeholder="Search" aria-label="Search">
+              <button class="search btn-md-o bg-dark text-white rounded" onclick="onClickSearch()"
+                type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col-md-9 order-md-1 order-2">
+        <% if (course.length===0) { %>
+          <div class="col-md-9 text-danger">
+            <p>No Course Found !</p>
+          </div>
+          <% } else { %>
+            <% course.forEach(course=> { %>
+              <div class="col-md-12 d-flex justify-content-center">
+                <!-- Card -->
+                <% if(!student){ %>
+                  <a href="/elearning/api/v1/getCourseDetails/<%= course._id %>">
+                    <% } else { %>
+                      <a href="/elearning/api/v1/student/CourseDetails/<%= course._id %>">
+                        <% } %>
+
+                          <div class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-3">
+                                <img src="/backend/images/<%= course.course_img %>" class="img-fluid rounded-start"
+                                  alt="course_img" style="object-fit: cover; height: 100%;">
+                              </div>
+                              <div class="col-md-9">
+                                <div class="card-body">
+                                  <h5 class="card-title m-0 p-0">
+                                    <%= course.course_title %>
+                                  </h5>
+                                  <p class="card-title m-0 p-0">
+                                    <%= course.course_category %>
+                                  </p>
+                                  <p class="card-text">
+                                    <%= course.course_description %>
+                                  </p>
+                                  <p class="card-text"><small class="text-body-secondary">
+                                      <%= Date() %>
+                                    </small></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </a>
+                      <!-- Card End -->
+              </div>
+              <% }); %>
+                <% } %>
+      </div>
+
+
+      <!-- Categories -->
+      <div class="col-md-3 order-md-2 order-1">
+        <ul class="filter">
+          <h5 class="m-0 p-0">Course Categories</h5>
+          <li><a href="#" onclick="selectCategory('Art')">Art & Design</a></li>
+          <li><a href="#" onclick="selectCategory('Academic')">Academic</a></li>
+          <li><a href="#" onclick="selectCategory('Communication')">Communication</a></li>
+          <li><a href="#" onclick="selectCategory('ContentWriting')">Content Writing</a></li>
+          <li><a href="#" onclick="selectCategory('Finance')">Finance</a></li>
+          <li><a href="#" onclick="selectCategory('Marketing')">Marketing</a></li>
+          <li><a href="#" onclick="selectCategory('Network')">Network</a></li>
+          <li><a href="#" onclick="selectCategory('Photography')">Photography</a></li>
+          <li><a href="#" onclick="selectCategory('Science')">Science</a></li>
+          <li><a href="#" onclick="selectCategory('Software')">Software</a></li>
+          <li><a href="#" onclick="selectCategory('Videography')">Videography</a></li>
+          <li><a href="#" onclick="selectCategory('Programming')">Programming</a></li>
+          <!-- Add other categories as needed -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <%- include('partials/footer.ejs') %>
+
+    <% if (!student) { %>
+      <script>
+
+        function selectCategory(category) {
+          location.href = `/eLearning/api/v1/getcourse/?category=${category}`;
+        }
+
+
+        let searchform = document.getElementById('search-form');
+
+        let searchbtn = document.getElementById('search-btn');
+        searchbtn.addEventListener('click', onClickSearch);
+
+        function onClickSearch(event) {
+          
+          let fieldValue = searchform.value.trim(); // Retrieve the current value of the search input field
+          if (fieldValue !== '') { // Check if the search field is not empty
+            window.location.href = `/eLearning/api/v1/searchcourse/?title=${fieldValue}`;
+          }
+        }
+
+      </script>
+
+      <% } else { %>
+        <script>
+          function selectCategory(category) {
+            location.href = `/eLearning/api/v1/student/getcourse/?category=${category}`;
+          }
+
+
+
+          let s_searchform = document.getElementById('search-form');
+          let s_searchbtn = document.getElementById('search-btn');
+          s_searchbtn.addEventListener('click', onClickSearch);
+
+          function onClickSearch(event) {
+            
+            let fieldValue = s_searchform.value.trim(); // Retrieve the current value of the search input field
+            if (fieldValue !== '') { // Check if the search field is not empty
+              window.location.href = `/eLearning/api/v1/student/searchcourse/?title=${fieldValue}`;
+            }
+          }
+        </script>
+        <% } %>

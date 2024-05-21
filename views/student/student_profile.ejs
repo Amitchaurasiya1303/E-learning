@@ -1,0 +1,80 @@
+<%- include('./../partials/navbar.ejs') %>
+  <!-- start: Main -->
+
+  <div class="container">
+
+
+    <div class="row my-4">
+
+      <div class="col-md-2">
+
+
+        <% if (!student.profile_pic) { %>
+
+          <img src="/Assets/default_profile.jpg" alt="#" class="img-fluid"
+            style="border-radius: 50%; object-fit: cover; aspect-ratio: 1/1;">
+
+          <% }else{%>
+
+            <img src="/backend/images/<%= student.profile_pic %>" alt="#" class="img-fluid"
+              style="border-radius: 50%; object-fit: cover; aspect-ratio: 1/1; border: 7px solid gray; padding: 5px;">
+
+            <%}%>
+
+
+              <form action="/eLearning/api/v1/student/user_profile" method="post" enctype="multipart/form-data">
+                <input type="file" id="profile_pic" name="profile_pic" class="form-control my-4">
+                <button type="submit" class="mybtn border-danger bg-danger text-white">Upload</button>
+              </form>
+
+      </div>
+
+      <div class="col-md-10">
+
+        <div class="row">
+          <h5>Personal Details</h5>
+          <div class="col-md-10">
+            <p class="form-control"><b>Studnet ID:</b>
+              <%= student._id %>
+            </p>
+            <p class="form-control"><b>Role:</b>
+              <%= student.role %>
+            </p>
+            <p class="form-control"><b>Student Name:</b>
+              <%= student.first_name %>
+                <%= student.last_name %>
+            </p>
+            <p class="form-control"><b>Username:</b>
+              <%= student.user_name %>
+            </p>
+            <p class="form-control"><b>Gender:</b>
+              <%= student.gender %>
+            </p>
+            <p class="form-control"><b>DOB:</b>
+              <%= student.dob %>
+            </p>
+            <p class="form-control"><b>Phone Number:</b>
+              <%= student.phone_number %>
+            </p>
+            <p class="form-control"><b>Email ID:</b>
+              <%= student.email_id %>
+            </p>
+            <p class="form-control"><b>State:</b>
+              <%= student.state %>
+            </p>
+            <p class="form-control"><b>City:</b>
+              <%= student.city %>
+            </p>
+            <p class="form-control"><b>Zip:</b>
+              <%= student.zip %>
+            </p>
+            <a href="/eLearning/api/v1/student/update_details"><button class="mybtn bg-dark text-white">Update
+                Profile</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%- include('./../partials/footer.ejs') %>
