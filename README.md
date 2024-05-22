@@ -17,6 +17,26 @@ The eLearning Platform is designed to provide a comprehensive and accessible onl
 ![Screenshot_20-5-2024_11212_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/3a2c506e-2082-4a6c-8e91-3ae5b1974595)
 ![Screenshot_20-5-2024_11242_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/c600fe1c-c90b-4d26-9d05-274d3277a187)
 ![Screenshot_20-5-2024_11256_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/9f844c10-1e61-4515-b2a5-e41786f1533d)
+![Screenshot_20-5-2024_11311_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/294253e6-7f43-45d4-8b2d-0cf041a41d6c)
+![Screenshot_20-5-2024_11329_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/f22e5ea7-57cc-43dc-9a6d-766c0715b637)
+
+### Student
+![Screenshot_20-5-2024_11352_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/8c308c23-e072-4468-a1e6-578d8b2f3377)
+![Screenshot_20-5-2024_11610_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/9630583f-8ba8-4b1f-8294-6350b1cfe05f)
+![Screenshot_20-5-2024_11445_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/d45bed63-2130-4ce4-b9d0-fa4157984e9e)
+![Screenshot_20-5-2024_11432_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/85bff396-fa46-41a2-900d-8ec2e5880f56)
+![Screenshot_20-5-2024_11414_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/d24dc930-a634-450b-8a27-71e1541cdd62)
+
+### Instructor
+![Screenshot_20-5-2024_11531_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/af75f257-a584-4314-8a1c-9a63e171aaaf)
+![Screenshot_20-5-2024_11548_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/a912437a-d5b2-4b7f-93f9-a5908cc4752e)
+![Screenshot_20-5-2024_11833_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/d65a9c9b-f09a-4456-ad58-6e1a9dae6582)
+
+### Admin
+![Screenshot_20-5-2024_1176_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/ba9e26bd-637b-45d2-946f-b1682d64a8d4)
+![Screenshot_20-5-2024_11754_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/fc29e4c8-1df5-4dd8-93ea-c6f52bbd47fa)
+![Screenshot_20-5-2024_11732_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/d44b0aef-42f0-4f4d-be08-95041ca47ee1)
+
 
 ## Features
 - Student registration and login
