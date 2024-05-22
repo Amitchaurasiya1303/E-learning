@@ -12,6 +12,10 @@ E-Learning is user-friendly online education system that offers a wide range of
 ## Introduction
 The eLearning Platform is designed to provide a comprehensive and accessible online education experience. It allows users to register, browse, and enroll in a wide variety of courses. Students can access class materials, participate in live sessions, and give feedback on courses. The platform aims to enhance learning by offering a user-friendly interface, easy navigation, and a wide range of educational resources to help users improve their knowledge and skills.
 
+# output
+![Screenshot_20-5-2024_11152_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/27a3716e-a701-438b-8125-dee430760491)
+![Screenshot_20-5-2024_11212_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/3a2c506e-2082-4a6c-8e91-3ae5b1974595)
+
 ## Features
 - Student registration and login
 - Course browsing and enrollment
