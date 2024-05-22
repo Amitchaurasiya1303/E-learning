@@ -15,6 +15,8 @@ The eLearning Platform is designed to provide a comprehensive and accessible onl
 # output
 ![Screenshot_20-5-2024_11152_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/27a3716e-a701-438b-8125-dee430760491)
 ![Screenshot_20-5-2024_11212_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/3a2c506e-2082-4a6c-8e91-3ae5b1974595)
+![Screenshot_20-5-2024_11242_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/c600fe1c-c90b-4d26-9d05-274d3277a187)
+![Screenshot_20-5-2024_11256_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/9f844c10-1e61-4515-b2a5-e41786f1533d)
 
 ## Features
 - Student registration and login
