@@ -346,21 +346,9 @@ exports.EnrolledCoursesClasses = async (request, response) => {
     
     if(isEnrolled){
 
-      // const class_details = await Classes.aggregate([
-      //   {
-      //     $lookup: {
-      //       from: 'courses',
-      //       localField: 'c_id',
-      //       foreignField: '_id',
-      //       as: 'enrolled_courses'
-      //   }
-      // ]);
-      // console.log(class_details)
       let course = await Course.findById(request.params.id)
       let classes = await Classes.find(request.id);
       response.render('student/classes', { student, classes, course });
-      // console.log(class_details.enrolled_courses)
-      // response.render('student/classes', { student, class_details });
 
     }
     
@@ -375,7 +363,7 @@ exports.AllCourses = async (request, response) => {
   try {
     const student = request.student;
     const course = await Course.find();
-    response.render('student/allcourses', { student, course });
+    response.render('./allcourses', { student, course });
   } catch (error) {
     console.error(error);
     response.status(500).send('Internal Server Error');
@@ -389,7 +377,7 @@ exports.getCourse = async (request, response) => {
     let student = request.student;
 
     const course = await Course.find({ course_category: category })
-    response.render('student/allcourses', { course, category, student });
+    response.render('./allcourses', { course, category, student });
   }
   catch (err) {
     response.status(404).json({
@@ -410,7 +398,7 @@ exports.SearchCourse = async (request, response) => {
       course_title = obj.course_title.toLowerCase();
       return course_title.includes(str.toLowerCase());
     });
-    response.render('student/allcourses', { student, course: result });
+    response.render('./allcourses', { student, course: result });
   }
   catch (err) {
     response.status(404).json({
