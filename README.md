@@ -68,5 +68,6 @@ To use the eLearning Platform, follow these steps:
 For any questions, issues or suggestions please feel free to reach out:
 
 Email: amitchaurasiya092@gmail.com
+<br>
 Linkdin: https://www.linkedin.com/in/amit-chaurasiya-a2419a265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
 
