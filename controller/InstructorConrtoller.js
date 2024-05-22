@@ -188,54 +188,6 @@ let uploadnotes = multer({
 });
 
 //========================================Manage Classes  By Instructor========================================
-// exports.ManageClass = async (request, response) => {
-//     try {
-//         if (request.method == 'GET') {
-//             const instructor_id = request.instructor._id;
-//             let c_id = request.params.id;
-//             let classDetails = await Classes.findById(c_id);
-//             const instructor = await Instructors.findById(instructor_id);
-//             const successMessage = request.flash('success');
-//             const errorMessage = request.flash('error');
-//             response.render('instructor/manageClass&Notes', { successMessage, errorMessage, instructor, classDetails })
-//         } else if (request.method === 'POST') {
-//             uploadnotes.single('class_notes')(request, response, async (err) => {
-//                 if (err) {
-//                     console.log(err);
-//                     response.status(400).json({
-//                         status: 'fail',
-//                         message: 'File upload failed'
-//                     });
-//                 } else {
-
-//                     let c_id = request.params.id;
-//                     let classDetail = await Classes.findById({id:c_id});
-
-//                     try {
-
-//                         let c_id = request.params.id;
-//                         let notes = request.file.filename;
-
-//                         let updatedcourse = await Classes.findOneAndUpdate({ _id: c_id }, { class_notes: notes },
-//                             { new: true });
-
-//                         request.flash('success', "Notes Uploaded SuccessFully");
-//                         response.redirect(`/eLearning/api/v1/instructor/${classDetail.c_id}/${classDetail._id}`);
-//                     } catch (error) {
-//                         request.flash('error', + "Failed!");
-//                         response.redirect(`/eLearning/api/v1/instructor/${classDetail.c_id}/${classDetail._id}`);
-//                     }
-//                 }
-//             });
-//         }
-//     } catch (err) {
-//         response.status(500).json({
-//             status: 'fail',
-//             message: err.message
-//         });
-//     }
-// };
-
 exports.ManageClass = async (request, response) => {
     try {
         if (request.method === 'GET') {
