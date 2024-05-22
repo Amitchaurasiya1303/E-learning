@@ -19,6 +19,7 @@ The eLearning Platform is designed to provide a comprehensive and accessible onl
 ![Screenshot_20-5-2024_11256_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/9f844c10-1e61-4515-b2a5-e41786f1533d)
 ![Screenshot_20-5-2024_11311_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/294253e6-7f43-45d4-8b2d-0cf041a41d6c)
 ![Screenshot_20-5-2024_11329_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/f22e5ea7-57cc-43dc-9a6d-766c0715b637)
+![Screenshot_22-5-2024_132258_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/1e77306b-1751-4cf0-8a93-621be6499123)
 
 ### Student
 ![Screenshot_20-5-2024_11352_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/8c308c23-e072-4468-a1e6-578d8b2f3377)
@@ -31,6 +32,8 @@ The eLearning Platform is designed to provide a comprehensive and accessible onl
 ![Screenshot_20-5-2024_11531_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/af75f257-a584-4314-8a1c-9a63e171aaaf)
 ![Screenshot_20-5-2024_11548_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/a912437a-d5b2-4b7f-93f9-a5908cc4752e)
 ![Screenshot_20-5-2024_11833_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/d65a9c9b-f09a-4456-ad58-6e1a9dae6582)
+![Screenshot_22-5-2024_132413_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/1d3fe6a9-b02f-461d-a285-f45032d0130f)
+![Screenshot_20-5-2024_11855_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/c12317f1-2812-425d-ab3d-a5d9e19d9104)
 
 ### Admin
 ![Screenshot_20-5-2024_1176_127 0 0 1](https://github.com/Amitchaurasiya1303/E-learning/assets/153846115/ba9e26bd-637b-45d2-946f-b1682d64a8d4)
