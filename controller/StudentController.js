@@ -14,6 +14,7 @@ const Razorpay = require('razorpay');
 const { generate } = require('otp-generator');
 const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
 var nodemailer = require('nodemailer');
+const multer = require('multer');
 
 
 //==================== Get Razor Pay Key From Config File =================== 
@@ -276,6 +277,58 @@ exports.userProfile = (request,response) =>{
  
 }
 
+//==================== Change Profile Picture ===================
+let storage = multer.diskStorage({
+  destination: 'public/backend/images',
+  filename: (request, file, cb) => {
+      cb(null, file.originalname); // Use the original filename
+  }
+});
+let upload = multer({
+  storage: storage
+});
+
+//==================== Change Profile Picture ===================
+exports.userProfile = async (request,response) =>{
+  try{
+  if(request.method=='GET'){
+    const student_id =  request.student._id ;
+    let student = await Student.findById({_id:student_id});
+    response.render('student/student_profile',{student})
+  }else if (request.method === 'POST') {
+    upload.single('profile_pic')(request, response, async (err) => {
+        if (err) {
+            console.log(err);
+            response.status(400).json({
+                status: 'fail',
+                message: 'File upload failed'
+            });
+        } else {
+            try {
+
+                let s_id = request.student._id;
+                let profile_pic = request.file.filename;
+
+                let updatedStudent = await Student.findOneAndUpdate({ _id: s_id }, { profile_pic: profile_pic },
+                    { new: true });
+
+                response.redirect('user_profile');
+            } catch (err) {
+                response.status(500).json({
+                    status: 'fail',
+                    message: err.message
+                });
+            }
+        }
+    });
+}
+} catch (err) {
+response.status(500).json({
+    status: 'fail',
+    message: err.message
+});
+}
+};
 //==================== Update Student Details ===================
 exports.UpdateStudentDetails = async (request, response) => {
   if (request.method == 'GET') {
